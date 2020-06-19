@@ -13,7 +13,29 @@ export default function BrandPage() {
       <section></section>
 
       {/* How it works */}
-      <section></section>
+      <section className={styles.howItWorksSection}>
+        <h1 className={styles.title}>How it works</h1>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <div className={styles.imgContainer}>
+              <img src="" alt=""/>
+            </div>
+            <p className={styles.desc}>Build gift guides, earn money.</p>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.imgContainer}>
+              <img src="" alt=""/>
+            </div>
+            <p className={styles.desc}>Share links to gifts you love.</p>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.imgContainer}>
+              <img src="" alt=""/>
+            </div>
+            <p className={styles.desc}>Earn 10% from brands on each sale.</p>
+          </div>
+        </div>
+      </section>
 
       {/* Scale your gift sales */}
       <section className={styles.giftSalesSection}>
