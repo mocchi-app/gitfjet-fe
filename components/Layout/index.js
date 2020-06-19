@@ -4,6 +4,7 @@ import utilStyles from '../../styles/utils.module.scss';
 import Link from 'next/link';
 
 import Header from '../Header';
+import Footer from '../Footer';
 
 export default function Layout({ children, home }) {
   return (
@@ -12,7 +13,7 @@ export default function Layout({ children, home }) {
       
       <main>{children}</main>
       
-      {/* Footer */}
+      <Footer />
     </div>
   );
 }

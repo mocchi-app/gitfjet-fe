@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
-export default function Home() {
+export default function BrandPage() {
   return (
     <Layout>
       <Head>
-        <title>First Post</title>
+        <title>Brand</title>
       </Head>
       <h1>First Post</h1>
       <h2>
