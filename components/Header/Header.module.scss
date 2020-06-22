@@ -29,11 +29,14 @@
 .searchField {
   width: 197px;
   height: 38px;
-  background: #979eac;
-  opacity: 0.1;
+  background: #f4f5f7;
+  // opacity: 0.1;
   border-radius: 100px;
   border: none;
   outline: none;
   padding: 7px 20px;
   color: #1e2e4f;
+  background-image: url('/images/search.png');
+  background-repeat: no-repeat;
+  background-position: 160px center;
 }
