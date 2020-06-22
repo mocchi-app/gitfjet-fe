@@ -18,19 +18,19 @@ export default function BrandPage() {
         <div className={styles.cards}>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
-              <img src="" alt=""/>
+              <img src="/images/gift.png" alt=""/>
             </div>
             <p className={styles.desc}>Build gift guides, earn money.</p>
           </div>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
-              <img src="" alt=""/>
+              <img src="/images/link.png" alt=""/>
             </div>
             <p className={styles.desc}>Share links to gifts you love.</p>
           </div>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
-              <img src="" alt=""/>
+              <img src="/images/dollar-sign.png" alt=""/>
             </div>
             <p className={styles.desc}>Earn 10% from brands on each sale.</p>
           </div>

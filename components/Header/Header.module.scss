@@ -30,7 +30,6 @@
   width: 197px;
   height: 38px;
   background: #f4f5f7;
-  // opacity: 0.1;
   border-radius: 100px;
   border: none;
   outline: none;
@@ -39,4 +38,8 @@
   background-image: url('/images/search.png');
   background-repeat: no-repeat;
   background-position: 160px center;
+
+  &:active, &:focus {
+    background-image: none;
+  }
 }
