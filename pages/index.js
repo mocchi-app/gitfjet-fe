@@ -10,7 +10,16 @@ export default function BrandPage() {
         <title>Brand</title>
       </Head>
       {/* Main Promo */}
-      <section></section>
+      <section className={styles.mainPromo}>
+        <div className={styles.text}>
+          <h1 className={styles.title}>Supercharge your gift <br/> guides.</h1>
+          <p className={styles.actionText}>Betabook helps brands sell gifts with influencers.</p>
+          <a className={styles.getStarted}>Get Started</a>
+        </div>
+        <div className={styles.image}>
+          <img src="/images/bg-card.png" alt="promo"/>
+        </div>
+      </section>
 
       {/* How it works */}
       <section className={styles.howItWorksSection}>

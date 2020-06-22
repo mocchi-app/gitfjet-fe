@@ -1,3 +1,29 @@
+// Main Promo section
+.mainPromo {
+  display: flex;
+  width: 85%;
+  margin-left: auto;
+  
+  .text {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title, .actionText {
+      text-align: left;
+    } 
+    
+  }
+
+  .image {
+    min-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
 // How it works section
 .howItWorksSection {
   padding-top: 110px;
@@ -6,6 +32,7 @@
   align-items: center;
 
   .title {
+    margin-top: 0;
     margin-bottom: 117px;
   }
 }
