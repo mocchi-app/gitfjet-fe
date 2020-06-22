@@ -1,4 +1,8 @@
 import Head from 'next/head';
+import styled from 'styled-components';
+
+import GiftCard from 'components/GiftCard';
+
 import styles from '../styles/home.module.scss';
 
 export default function Home() {
@@ -21,6 +25,28 @@ export default function Home() {
           <img src="/images/search-white.png" alt="search" className={styles.searchIcon} />
         </div>
       </section>
+
+      <CardsContainer className={styles.cardsSection}>
+        <GiftCard />
+        <GiftCard />
+        <GiftCard />
+        {/* <GiftCard />
+        <GiftCard />
+        <GiftCard />
+        <GiftCard />
+        <GiftCard />
+        <GiftCard /> */}
+      </CardsContainer>
     </>
   );
 }
+
+const CardsContainer = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* margin-top: 100px;
+  margin-bottom: 150px; */
+  max-width: 80%;
+  margin: 100px auto 120px auto;
+`;
