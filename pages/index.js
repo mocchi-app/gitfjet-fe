@@ -45,8 +45,6 @@ const CardsContainer = styled.section`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  /* margin-top: 100px;
-  margin-bottom: 150px; */
   max-width: 80%;
   margin: 100px auto 120px auto;
 `;
