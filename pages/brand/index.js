@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/brand.module.scss';
+import styles from '../../styles/brand.module.scss';
 
 export default function BrandPage() {
   return (

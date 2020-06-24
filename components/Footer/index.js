@@ -1,7 +1,6 @@
 import styles from './Footer.module.scss';
 import stylesUtils from '../../styles/utils.module.scss';
 
-
 export default function Footer() {
   return (
     <footer className={styles.mainFooter}>
