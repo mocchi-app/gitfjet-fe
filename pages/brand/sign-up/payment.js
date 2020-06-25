@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
@@ -14,7 +15,9 @@ export default function PaymentForm() {
           <Input type='text' placeholder='MM / YYYY' />
           <Input type='text' placeholder='CVV Code' />
         </CardDetails>
-        <Btn>Confirm</Btn>
+        <Link href='/brand/sign-up/comission'>
+          <Btn>Confirm</Btn>
+        </Link>
         <Footer>
           <Text> By signing up, I agree to Mocchi</Text>
           <PrivacyPollicy>Terms of Service and Privacy Policy.</PrivacyPollicy>
