@@ -1,13 +1,35 @@
 import styled from 'styled-components';
 
-export default function GiftCard({ title, id, owner, icon }) {
+export default function GiftCard({
+  price,
+  brandName,
+  description,
+  btn,
+  title,
+  id,
+  owner,
+  icon,
+}) {
   return (
     <Card>
       <ImgContainer>
         <img src='' alt='' />
       </ImgContainer>
       <CardMeta>
-        <GiftName>Best Gifts for Men</GiftName>
+        <TopSection>
+          <FlexContainer>
+            <GiftName>Best Gifts for Men</GiftName>
+            {price && <Price>{price}</Price>}
+          </FlexContainer>
+          {brandName && <Brand>{brandName}</Brand>}
+          {description && (
+            <Description>
+              <>
+                {description} <strong>Read More</strong>
+              </>
+            </Description>
+          )}
+        </TopSection>
         <Container>
           <OwnerInfo>
             <img src='/images/giftOwnerIcon.png' alt='gift' />
@@ -20,6 +42,43 @@ export default function GiftCard({ title, id, owner, icon }) {
     </Card>
   );
 }
+
+const Description = styled.div`
+  font-size: 12px;
+  line-height: 16px;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #44516f;
+  margin-top: 12px;
+`;
+
+const TopSection = styled.div`
+  margin-bottom: 14px;
+`;
+
+const Brand = styled.div`
+  color: #44516f;
+  text-transform: capitalize;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 2px;
+`;
+
+const Price = styled.span`
+  color: #1e2e4f;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const Card = styled.div`
   width: 300px;
@@ -48,7 +107,6 @@ const GiftName = styled.div`
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
-  padding: 0 25px 16px;
 `;
 
 const Container = styled.div`

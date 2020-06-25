@@ -30,12 +30,12 @@ export default function Home() {
         <GiftCard />
         <GiftCard />
         <GiftCard />
-        {/* <GiftCard />
         <GiftCard />
         <GiftCard />
         <GiftCard />
         <GiftCard />
-        <GiftCard /> */}
+        <GiftCard />
+        <GiftCard />
       </CardsContainer>
     </>
   );

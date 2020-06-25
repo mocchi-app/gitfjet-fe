@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import styled from 'styled-components';
 import { withRouter } from 'next/router';
 
 import Header from '../Header';
@@ -12,14 +12,24 @@ function Layout({ children, router, home }) {
   const isSignUp = pathname.includes('sign-up');
 
   return (
-    <div>
+    <Container>
       {!isSignUp && <Header />}
 
       <main>{children}</main>
 
       {!isSignUp && <Footer />}
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  main {
+    flex: 1;
+  }
+`;
 
 export default withRouter(Layout);
