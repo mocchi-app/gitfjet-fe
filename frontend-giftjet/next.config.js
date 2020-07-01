@@ -4,6 +4,7 @@ require('dotenv').config();
 module.exports = {
   env: {
     API_URL: "https://strapigift.herokuapp.com",
+    API_BRAND: "https://mocchi-brand-be.herokuapp.com",
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
