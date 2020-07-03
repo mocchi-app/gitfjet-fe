@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { withRouter } from 'next/router';
 
-export default function GiftCard({
+const GiftCard = ({
   price,
   brandName,
   description,
@@ -9,7 +10,12 @@ export default function GiftCard({
   id,
   owner,
   icon,
-}) {
+  router,
+}) => {
+
+  const { pathname } = router;
+  const isInfluencerRoute = pathname.includes('influencer');
+
   return (
     <Card>
       <ImgContainer>
@@ -30,14 +36,14 @@ export default function GiftCard({
             </Description>
           )}
         </TopSection>
-        <Container>
+        {!isInfluencerRoute && <Container>
           <OwnerInfo>
             <img src='/images/giftOwnerIcon.png' alt='gift' />
             <OwnerName>Jane Cooper</OwnerName>
           </OwnerInfo>
 
           <ViewListBtn>View List</ViewListBtn>
-        </Container>
+        </Container>}
       </CardMeta>
     </Card>
   );
@@ -137,3 +143,5 @@ const ViewListBtn = styled.a`
   text-align: center;
   text-transform: capitalize;
 `;
+
+export default withRouter(GiftCard);
