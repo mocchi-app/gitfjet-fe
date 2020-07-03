@@ -8,18 +8,24 @@ import Footer from '../Footer';
 function Layout({ children, router, home }) {
   console.log('router: ', router);
   const { pathname } = router;
+  
+  const withNoHeader = ['store', 'complete', 'comission', 'onboarding', 'card'];
 
-  const isSignUp = pathname.includes('sign-up');
-  const isOnboarding = pathname.includes('onboarding');
+  const showHeaeder = withNoHeader
+    .map(page => pathname.includes(page))
+    .every(path => !path);
+  console.log('showHeaeder', showHeaeder);
+
+
   const isPayment = pathname.includes('payment');
 
   return (
     <Container>
-      {(!isSignUp && !isOnboarding) && <Header />}
+      { showHeaeder && <Header />}
 
       <main>{children}</main>
 
-      {(!isSignUp && !isPayment) && <Footer />}
+      {(showHeaeder && !isPayment) && <Footer />}
     </Container>
   );
 }

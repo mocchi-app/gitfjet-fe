@@ -1,9 +1,18 @@
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
+import Spinner from 'components/spinner';
+
 export default function StoreUrlForm() {
-  const handleSignUp = async () => {
+  const [loading, setLoading] = useState(false);
+  const [storeName, setStoreName] = useState('');
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
     const { API_BRAND } = process.env;
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
@@ -13,15 +22,19 @@ export default function StoreUrlForm() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        companyUrl: 'mocchi-app.myshopify.com',
+        companyUrl: storeName || 'mocchi-app.myshopify.com',
       }),
     });
     const data = await res.json();
-
-    console.log('data', data);
+    const { signUpUrl = '' } = data;
+    
+    if (signUpUrl !== '') {
+      console.log('signUpUrl:',signUpUrl);
+      setLoading(false);
+      document.location.href = signUpUrl;
+    }
   };
 
-  // onClick={handleSignUp}
   return (
     <Container>
       <LogoContainer>
@@ -30,20 +43,56 @@ export default function StoreUrlForm() {
       <PageTitle>Connect your Shopify store</PageTitle>
       <PageSubTitle>Please follow this step to sync Shopify</PageSubTitle>
       <Form>
+        {loading && (
+          <>
+            <SpinContainer>
+              <Spinner />
+            </SpinContainer>
+            <Overlay></Overlay>
+          </>
+        )}
         <FormTitle>Enter your store URL</FormTitle>
-        <Input type='text' placeholder='mystore.myshopify.com' />
+        <Input
+          type='text'
+          placeholder='mystore.myshopify.com'
+          value={storeName}
+          onChange={(e) => setStoreName(e.target.value)}
+        />
         <BtnContainer>
-          <Link href="/brand">
+          <Link href='/brand'>
             <Btn className='cancel'>Cancel</Btn>
           </Link>
-          <Link href="/brand/sign-up/payment">
-            <Btn className='done'>Done</Btn>
-          </Link>
+          {/* <Link href="/brand/sign-up/payment"> */}
+          <Btn className='done' onClick={handleSignUp}>
+            Done
+          </Btn>
+          {/* </Link> */}
         </BtnContainer>
       </Form>
     </Container>
   );
 }
+
+const SpinContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const Overlay = styled.div`
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.6;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -83,6 +132,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 `;
 
 const FormTitle = styled.h2`
@@ -93,6 +144,7 @@ const FormTitle = styled.h2`
   font-size: 24px;
   line-height: 33px;
   margin: 55px 0 32px;
+  text-align: center;
 `;
 
 const Input = styled.input`
@@ -135,6 +187,7 @@ const Btn = styled.a`
 
   &.done {
     background: #42cb83;
+    cursor: pointer;
     color: #fff;
   }
 `;

@@ -1,11 +1,49 @@
 import Link from 'next/link';
-import { useState } from 'react';
-
+import { useRouter } from 'next/router';
+import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
-import fetch from 'isomorphic-unfetch';
+
+import { UserContext } from '../../../providers/UserProvider';
 
 export default function ComissionForm() {
-  const [value, setValue] = useState(10);
+  const router = useRouter();
+  const [comission, setComission] = useState(10);
+  const { updateComission, updateUserToken } = useContext(UserContext);
+
+  const { token = '' } = router.query;
+
+  const handleSubmit = () => {
+    updateComission(comission);
+    router.push('/brand/sign-up/card');
+  };
+
+  useEffect(() => {
+    if (token !== '') {
+      updateUserToken(token);
+    }
+  }, []);
+
+  const handleChange = (option) => {
+    if (option === 'minus' && comission === 10) {
+      return;
+    }
+
+    if (option === 'plus' && comission === 100) {
+      return;
+    }
+
+    if (option === 'minus') {
+      const newValue = comission - 10;
+      setComission(newValue);
+      return;
+    }
+
+    if (option === 'plus') {
+      const newValue = comission + 10;
+      setComission(newValue);
+      return;
+    }
+  };
 
   return (
     <Container>
@@ -23,17 +61,20 @@ export default function ComissionForm() {
             src='/images/plus-circle.png'
             className='plus'
             alt='plus button'
+            onClick={() => handleChange('plus')}
           />
           <img
             src='/images/minus-circle.png'
             className='minus'
             alt='minus button'
+            onClick={() => handleChange('minus')}
           />
-          <Value>{value}%</Value>
+          <Value>{comission}%</Value>
         </InputContainer>
         <Link href='/brand/sign-up/dashboard'>
-          <Btn>Confirm</Btn>
+          <a>Confirm</a>
         </Link>
+        {/* <Btn onClick={handleSubmit}>Confirm</Btn> */}
       </Form>
     </Container>
   );
