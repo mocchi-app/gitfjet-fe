@@ -17,7 +17,8 @@ export default function PaymentForm() {
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
   const checkClientSecretExist = async () => {
-    const res = await fetch(proxyurl + `${API_BRAND}/api/v1/payment/card`, {
+    // const res = await fetch(proxyurl + `${API_BRAND}/api/v1/payment/card`, {
+      const res = await fetch(`/api/v1/payment/card`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ export default function PaymentForm() {
 
     const data = await res.json();
     const { clientSecret = '' } = data;
-
+    console.log('NEW clientSecret CREATED', clientSecret);
     return clientSecret;
   };
 
@@ -90,7 +91,7 @@ export default function PaymentForm() {
       console.log('SUCCESS!');
       console.log(result.setupIntent.payment_method);
 
-      router.push('/brand/sign-up/dashboard')
+      router.push('/brand/sign-up/dashboard');
     }
   };
 

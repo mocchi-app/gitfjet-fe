@@ -16,7 +16,8 @@ export default function StoreUrlForm() {
     const { API_BRAND } = process.env;
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
-    const res = await fetch(proxyurl + `${API_BRAND}/api/v1/brand/signup`, {
+    // const res = await fetch(proxyurl + `${API_BRAND}/api/v1/brand/signup`, {
+    const res = await fetch('/api/v1/brand/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

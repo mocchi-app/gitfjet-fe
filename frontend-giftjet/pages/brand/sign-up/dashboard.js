@@ -10,11 +10,13 @@ export default function Dashboard() {
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
   const { userToken } = useContext(UserContext);
   const [productsList, setProductsList] = useState([]);
+  const [error, setError] = useState(null);
 
   const getAllProducts = async () => {
     if (productsList.length > 0) return;
 
-    const res = await fetch(proxyurl + `${API_BRAND}/api/v1/brand/products`, {
+    // const res = await fetch(proxyurl + `${API_BRAND}/api/v1/brand/products`, {
+    const res = await fetch('/api/v1/brand/products', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
