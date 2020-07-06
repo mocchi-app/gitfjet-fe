@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
@@ -11,6 +11,7 @@ export default function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
   const { userToken, comission } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
 
   const { API_BRAND } = process.env;
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
@@ -89,39 +90,26 @@ export default function PaymentForm() {
       console.log('SUCCESS!');
       console.log(result.setupIntent.payment_method);
 
-      // TODO: router.push(/products)
+      router.push('/brand/sign-up/dashboard')
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardSection />
-      <button disabled={!stripe}>Save Card</button>
-    </form>
+    <Container>
+      <LogoContainer>
+        <img src='/images/giftjet-logo.png' alt='giftjet logo' />
+      </LogoContainer>
+      <Form onSubmit={handleSubmit}>
+        <FormTitle>Add Payment</FormTitle>
+        <CardSection loading={loading} />
+        <button disabled={!stripe}>Save Card</button>
+        <Footer>
+          <Text> By signing up, I agree to Mocchi</Text>
+          <PrivacyPollicy>Terms of Service and Privacy Policy.</PrivacyPollicy>
+        </Footer>
+      </Form>
+    </Container>
   );
-
-  // return (
-  //   <Container>
-  //     <LogoContainer>
-  //       <img src='/images/giftjet-logo.png' alt='giftjet logo' />
-  //     </LogoContainer>
-  //     <Form>
-  //       <FormTitle>Add Payment</FormTitle>
-  //       <Input type='text' placeholder='mystore.myshopify.com' />
-  //       <CardDetails>
-  //         <Input type='text' placeholder='MM / YYYY' />
-  //         <Input type='text' placeholder='CVV Code' />
-  //       </CardDetails>
-  //       <Link href='/brand/sign-up/comission'>
-  //         <Btn>Confirm</Btn>
-  //       </Link>
-  //       <Footer>
-  //         <Text> By signing up, I agree to Mocchi</Text>
-  //         <PrivacyPollicy>Terms of Service and Privacy Policy.</PrivacyPollicy>
-  //       </Footer>
-  //     </Form>
-  //   </Container>
-  // );
 }
 
 const Container = styled.div`
@@ -160,6 +148,29 @@ const Form = styled.form`
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+
+  button {
+    padding: 14px 63px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+    box-sizing: border-box;
+    border-radius: 60px;
+    background: #42cb83;
+    color: #fff;
+    width: 420px;
+    text-align: center;
+    margin-bottom: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background: #3cbc79;
+    }
+  }
 `;
 
 const FormTitle = styled.h2`
@@ -172,41 +183,41 @@ const FormTitle = styled.h2`
   margin: 0 0 50px;
 `;
 
-const Input = styled.input`
-  background: #f4f9ff;
-  border-radius: 60px;
-  border: none;
-  outline: none;
-  width: 415px;
-  padding: 15px 20px;
-  color: #44516f;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
-  margin-bottom: 24px;
-`;
+// const Input = styled.input`
+//   background: #f4f9ff;
+//   border-radius: 60px;
+//   border: none;
+//   outline: none;
+//   width: 415px;
+//   padding: 15px 20px;
+//   color: #44516f;
+//   font-family: 'Noto Sans TC', sans-serif;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 14px;
+//   line-height: 19px;
+//   margin-bottom: 24px;
+// `;
 
-const Btn = styled.a`
-  padding: 14px 63px;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
-  box-sizing: border-box;
-  border-radius: 60px;
-  background: #42cb83;
-  color: #fff;
-  width: 420px;
-  text-align: center;
-  margin-bottom: 40px;
+// const Btn = styled.a`
+//   padding: 14px 63px;
+//   font-family: 'Noto Sans TC', sans-serif;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 18px;
+//   line-height: 26px;
+//   box-sizing: border-box;
+//   border-radius: 60px;
+//   background: #42cb83;
+//   color: #fff;
+//   width: 420px;
+//   text-align: center;
+//   margin-bottom: 40px;
 
-  &:hover {
-    background: #3cbc79;
-  }
-`;
+//   &:hover {
+//     background: #3cbc79;
+//   }
+// `;
 
 const Footer = styled.div`
   display: flex;

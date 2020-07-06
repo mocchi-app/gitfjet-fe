@@ -29,7 +29,7 @@ export default function StoreUrlForm() {
     const { signUpUrl = '' } = data;
     
     if (signUpUrl !== '') {
-      console.log('signUpUrl:',signUpUrl);
+      console.log('signUpUrl:', signUpUrl);
       setLoading(false);
       document.location.href = signUpUrl;
     }
@@ -62,11 +62,9 @@ export default function StoreUrlForm() {
           <Link href='/brand'>
             <Btn className='cancel'>Cancel</Btn>
           </Link>
-          {/* <Link href="/brand/sign-up/payment"> */}
           <Btn className='done' onClick={handleSignUp}>
             Done
           </Btn>
-          {/* </Link> */}
         </BtnContainer>
       </Form>
     </Container>

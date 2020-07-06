@@ -21,21 +21,27 @@ const CARD_ELEMENT_OPTIONS = {
 
 function CardSection() {
   return (
-    <label>
-      Card details
+    <label style={{ width: '415px'}}>
       <StripeElement options={CARD_ELEMENT_OPTIONS} />
     </label>
   );
 }
 
 const StripeElement = styled(CardElement)`
-  height: 40px;
-  padding: 10px 12px;
+  background: #f4f9ff;
+  border-radius: 60px;
+  border: none;
+  outline: none;
   width: 100%;
-  color: #32325d;
-  background-color: white;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  padding: 15px 20px;
+  color: #44516f;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 24px;
+
 
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;

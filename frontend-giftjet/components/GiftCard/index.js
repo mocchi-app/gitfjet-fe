@@ -12,7 +12,6 @@ const GiftCard = ({
   icon,
   router,
 }) => {
-
   const { pathname } = router;
   const isInfluencerRoute = pathname.includes('influencer');
 
@@ -36,18 +35,20 @@ const GiftCard = ({
             </Description>
           )}
         </TopSection>
-        {!isInfluencerRoute && <Container>
-          <OwnerInfo>
-            <img src='/images/giftOwnerIcon.png' alt='gift' />
-            <OwnerName>Jane Cooper</OwnerName>
-          </OwnerInfo>
+        {!isInfluencerRoute && (
+          <Container>
+            <OwnerInfo>
+              <img src='/images/giftOwnerIcon.png' alt='gift' />
+              <OwnerName>Jane Cooper</OwnerName>
+            </OwnerInfo>
 
-          <ViewListBtn>View List</ViewListBtn>
-        </Container>}
+            <ViewListBtn>View List</ViewListBtn>
+          </Container>
+        )}
       </CardMeta>
     </Card>
   );
-}
+};
 
 const Description = styled.div`
   font-size: 12px;

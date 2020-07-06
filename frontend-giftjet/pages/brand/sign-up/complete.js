@@ -71,10 +71,7 @@ export default function ComissionForm() {
           />
           <Value>{comission}%</Value>
         </InputContainer>
-        <Link href='/brand/sign-up/dashboard'>
-          <a>Confirm</a>
-        </Link>
-        {/* <Btn onClick={handleSubmit}>Confirm</Btn> */}
+        <Btn onClick={handleSubmit}>Confirm</Btn>
       </Form>
     </Container>
   );
