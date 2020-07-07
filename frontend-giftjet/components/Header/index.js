@@ -5,11 +5,33 @@ import { withRouter } from 'next/router';
 
 import styles from './Header.module.scss';
 
+const signupLinks = {
+  brand: '/brand/sign-up/store',
+  affiliate: '/affiliate/email',
+  home: '/home/signup',
+};
+
 const Header = ({ router }) => {
   const { pathname } = router;
   const [isOpen, setIsOpen] = useState(false);
 
   const isDashboardRoute = pathname.includes('/dashboard');
+  const isAffiliateRoute = pathname.includes('/affiliate');
+  const isBrandRoute = pathname.includes('/brand');
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    if (isBrandRoute) {
+      router.push(signupLinks.brand);
+      return;
+    }
+
+    if (isAffiliateRoute) {
+      router.push(signupLinks.affiliate);
+      return;
+    }
+  };
 
   const toggle = (e) => {
     e.preventDefault();
@@ -20,12 +42,22 @@ const Header = ({ router }) => {
     <BrandSection>
       <BrandName onClick={toggle}>
         Brand Name <span />
-        {isOpen && <Menu>
-          <MenuItem><img src='/images/settings.png' alt='settings' /> Account Settings</MenuItem>
-          <MenuItem><img src='/images/credit-card.png' alt='credit-card' /> Billing</MenuItem>
-          <MenuItem><img src='/images/log-out.png' alt='log-out' /> Log Out</MenuItem>
-          <MenuItem><img src='/images/help-circle.png' alt='help-circle' /> Help</MenuItem>
-        </Menu>}
+        {isOpen && (
+          <Menu>
+            <MenuItem>
+              <img src='/images/settings.png' alt='settings' /> Account Settings
+            </MenuItem>
+            <MenuItem>
+              <img src='/images/credit-card.png' alt='credit-card' /> Billing
+            </MenuItem>
+            <MenuItem>
+              <img src='/images/log-out.png' alt='log-out' /> Log Out
+            </MenuItem>
+            <MenuItem>
+              <img src='/images/help-circle.png' alt='help-circle' /> Help
+            </MenuItem>
+          </Menu>
+        )}
       </BrandName>
       <Img>
         <img src='/images/userAvatar.png' alt='user' />
@@ -50,9 +82,9 @@ const Header = ({ router }) => {
             <Link href='/sign-in'>
               <a className={styles.signInBtn}>Sign In</a>
             </Link>
-            <Link href='/brand/sign-up/store'>
-              <a className={styles.signUpBtn}>Sign Up</a>
-            </Link>
+            <a onClick={handleSignUp} className={styles.signUpBtn}>
+              Sign Up
+            </a>
           </>
         )}
       </SectionRight>
@@ -129,6 +161,7 @@ const BrandName = styled.div`
 
 const SectionRight = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const BrandSection = styled.div`

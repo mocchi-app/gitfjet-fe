@@ -1,31 +1,46 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 import { withRouter } from 'next/router';
 
 import Header from '../Header';
 import Footer from '../Footer';
 
-function Layout({ children, router, home }) {
+function Layout({ children, router }) {
   console.log('router: ', router);
   const { pathname } = router;
-  
-  const withNoHeader = ['store', 'complete', 'comission', 'onboarding', 'card'];
+
+  const withNoHeader = [
+    'store',
+    'complete',
+    'comission',
+    'card',
+    'affiliate/onboarding',
+    'affiliate/email',
+  ];
+  const withNoFooter = [
+    'store',
+    'complete',
+    'comission',
+    'card',
+    'affiliate/payment',
+  ];
 
   const showHeaeder = withNoHeader
-    .map(page => pathname.includes(page))
-    .every(path => !path);
-  console.log('showHeaeder', showHeaeder);
+    .map((page) => pathname.includes(page))
+    .every((path) => !path);
 
+  const showFooter = withNoFooter
+    .map((page) => pathname.includes(page))
+    .every((path) => !path);
 
   const isPayment = pathname.includes('payment');
 
   return (
     <Container>
-      { showHeaeder && <Header />}
+      {showHeaeder && <Header />}
 
       <main>{children}</main>
 
-      {(showHeaeder && !isPayment) && <Footer />}
+      {showFooter && <Footer />}
     </Container>
   );
 }

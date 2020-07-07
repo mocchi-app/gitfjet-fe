@@ -13,6 +13,7 @@ export default function StoreUrlForm() {
     e.preventDefault();
     setLoading(true);
 
+    console.log("process.env", process.env);
     const { API_BRAND } = process.env;
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 

@@ -25,6 +25,10 @@
   </url>
 
   <url>
+    <loc>https://giftjet.co/affiliate/email/index</loc>
+  </url>
+
+  <url>
     <loc>https://giftjet.co/affiliate/onboarding/index</loc>
   </url>
 
@@ -50,10 +54,6 @@
 
   <url>
     <loc>https://giftjet.co/engagement-gifts/</loc>
-  </url>
-
-  <url>
-    <loc>https://giftjet.co/baptism-gifts/</loc>
   </url>
 
   <url>
@@ -286,5 +286,9 @@
 
   <url>
     <loc>https://giftjet.co/mother-of-the-groom-gifts/</loc>
+  </url>
+
+  <url>
+    <loc>https://giftjet.co/baptism-gifts/</loc>
   </url>
 </urlset>

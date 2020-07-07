@@ -12,10 +12,10 @@ export default function AffiliatePage() {
       <section className={styles.mainPromo}>
         <div className={styles.text}>
           <h1 className={styles.sectionTitle}>
-            Create gift guides, <br /> earn money.
+          Recommend products <br /> you love, earn money.
           </h1>
           <p className={styles.sectionActionText}>
-            Build gift guides, earn money.
+          Review brands you love, earn money.
           </p>
           <Link href='/affiliate/onboarding'>
             <a className={styles.getStarted}>Get Started</a>
