@@ -1,8 +1,0 @@
-{  
-  "provider": "cloudinary",  
-  "providerOptions": {
-    "cloud_name": "strappy",
-    "api_key": "238521894264741",
-    "api_secret": "5nJsjPJtpPLGh8bZqrWGrpwq_6Y"  
-  }
-}
