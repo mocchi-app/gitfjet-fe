@@ -48,7 +48,7 @@ export default function ComissionForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/giftjet-logo.png' alt='giftjet logo' />
+        <img src='/images/logo_mocchi.png' alt='giftjet logo' />
       </LogoContainer>
       <Form>
         <FormTitle>Welcome to giftjet</FormTitle>

@@ -35,7 +35,7 @@ export default function StoreUrlForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/giftjet-logo.png' alt='giftjet logo' />
+        <img src='/images/logo_mocchi.png' alt='giftjet logo' />
       </LogoContainer>
       <PageTitle>Connect your Shopify store</PageTitle>
       <PageSubTitle>Please follow this step to sync Shopify</PageSubTitle>

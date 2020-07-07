@@ -98,7 +98,7 @@ export default function PaymentForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/giftjet-logo.png' alt='giftjet logo' />
+        <img src='/images/logo_mocchi.png' alt='giftjet logo' />
       </LogoContainer>
       <Form onSubmit={handleSubmit}>
         <FormTitle>Add Payment</FormTitle>
