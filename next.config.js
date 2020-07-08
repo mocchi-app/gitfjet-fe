@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
   env: {
-    API_BRAND: "https://mocchi-brand-be.herokuapp.com",
+    API_BRAND: "http://64.225.118.43:8080",
   },
   webpack: (config, { isServer }) => {
     if (isServer) {

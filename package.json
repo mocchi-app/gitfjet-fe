@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://mocchi-brand-be.herokuapp.com",
+  "proxy": "http://64.225.118.43:8080",
   "private": true,
   "scripts": {
     "dev": "next dev",

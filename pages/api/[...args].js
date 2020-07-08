@@ -7,6 +7,6 @@ export const config = {
 }
 
 export default createProxyMiddleware({
-  target: "https://mocchi-brand-be.herokuapp.com", //the data server
+  target: "http://64.225.118.43:8080", //the data server
   changeOrigin: true
 });
