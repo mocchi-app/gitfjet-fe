@@ -21,3 +21,9 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Build the Docker image
+        run: docker login docker.pkg.github.com -u sausageRoll -p ${{ secrets.GITHUB_TOKEN }} && docker build . --file Dockerfile --tag docker.pkg.github.com/mocchi-app/brand-fe/brand-fe:latest
+      - name: Publish the Docker image
+        run: docker push docker.pkg.github.com/mocchi-app/brand-fe/brand-fe:latest
+
