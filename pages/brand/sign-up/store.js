@@ -24,7 +24,7 @@ export default function StoreUrlForm() {
     });
     const data = await res.json();
     const { signUpUrl = '' } = data;
-    
+
     if (signUpUrl !== '') {
       console.log('signUpUrl:', signUpUrl);
       setLoading(false);

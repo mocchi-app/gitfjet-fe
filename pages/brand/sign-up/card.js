@@ -12,13 +12,14 @@ export default function PaymentForm() {
   const elements = useElements();
   const { userToken, comission } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+  const token = useSelector((state) => state.token);
+  console.log('TOKEN', token);
 
   const { API_BRAND } = process.env;
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
   const checkClientSecretExist = async () => {
-    // const res = await fetch(proxyurl + `${API_BRAND}/api/v1/payment/card`, {
-      const res = await fetch(`/api/v1/payment/card`, {
+    const res = await fetch(`/api/v1/payment/card`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

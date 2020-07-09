@@ -1,16 +1,20 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 
 import { UserContext } from '../../../providers/UserProvider';
+import { saveToken } from '../../../store/actions/tokenAction';
 
 export default function ComissionForm() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [comission, setComission] = useState(10);
   const { updateComission, updateUserToken } = useContext(UserContext);
 
   const { token = '' } = router.query;
+  console.log('token', token);
+  dispatch(saveToken(token));
 
   const handleSubmit = () => {
     updateComission(comission);

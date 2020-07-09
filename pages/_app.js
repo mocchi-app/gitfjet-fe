@@ -1,6 +1,10 @@
+import App from 'next/app';
 import React from 'react';
 import Head from 'next/head';
-import App from 'next/app';
+
+import { wrapper } from '../store/store';
+import { useStore } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -15,11 +19,11 @@ const stripePromise = loadStripe(
   'pk_test_51GumODF2EEnSfY8Kt4gnTKubjgNr3sDgfCP6BPa6ae1tHQFU1B6Xztbbkau0AL2oW4ynh7TqIlN0jVxdcPXjMcsf00TIM8ENaH'
 );
 
-class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props;
+function MyApp({ Component, pageProps }) {
+  const store = useStore((state) => state);
 
-    return (
+  return (
+    <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
       <UserProvider>
         <Elements stripe={stripePromise}>
           <Layout>
@@ -43,8 +47,8 @@ class MyApp extends App {
           </Layout>
         </Elements>
       </UserProvider>
-    );
-  }
+    </PersistGate>
+  );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
