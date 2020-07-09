@@ -6,8 +6,6 @@ import Product from 'components/product';
 import { UserContext } from '../../../providers/UserProvider';
 
 export default function Dashboard() {
-  const { API_BRAND } = process.env;
-  const proxyurl = 'https://cors-anywhere.herokuapp.com/';
   const { userToken } = useContext(UserContext);
   const [productsList, setProductsList] = useState([]);
   const [error, setError] = useState(null);
@@ -15,7 +13,6 @@ export default function Dashboard() {
   const getAllProducts = async () => {
     if (productsList.length > 0) return;
 
-    // const res = await fetch(proxyurl + `${API_BRAND}/api/v1/brand/products`, {
     const res = await fetch('/api/v1/brand/products', {
       method: 'GET',
       headers: {
