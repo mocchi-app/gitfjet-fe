@@ -1,14 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
 import Product from 'components/product';
-import { UserContext } from '../../../providers/UserProvider';
 
 export default function Dashboard() {
-  const { userToken } = useContext(UserContext);
   const [productsList, setProductsList] = useState([]);
-  const [error, setError] = useState(null);
+  const token = useSelector((state) => state.token);
 
   const getAllProducts = async () => {
     if (productsList.length > 0) return;
@@ -17,7 +16,7 @@ export default function Dashboard() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userToken}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
