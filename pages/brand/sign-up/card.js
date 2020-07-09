@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
