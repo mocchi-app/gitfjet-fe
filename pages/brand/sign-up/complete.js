@@ -87,6 +87,8 @@ const Container = styled.div`
   padding-top: 21px;
   align-items: center;
   color: #1e2e4f;
+  position: relative;
+  height: 100vh;
 `;
 
 const LogoContainer = styled.div`
@@ -107,6 +109,9 @@ const Form = styled.form`
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 const FormTitle = styled.h2`
@@ -154,6 +159,8 @@ const InputContainer = styled.div`
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    width: 24px;
+    height: 24px;
   }
 
   .plus {
@@ -208,6 +215,6 @@ const Btn = styled.a`
   text-align: center;
 
   &:hover {
-    background: #3cbc79;
+    background: #dc3b6c;
   }
 `;

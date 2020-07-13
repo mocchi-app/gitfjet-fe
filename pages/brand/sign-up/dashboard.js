@@ -16,7 +16,9 @@ export default function Dashboard() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
+        Authorization: `Bearer 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`,
+        
       },
     });
 
@@ -38,9 +40,9 @@ export default function Dashboard() {
   return (
     <Container>
       <Header>Active Products</Header>
-      {productsList.map((product) => (
-        <Product key={product.id} />
-      ))}
+      {productsList.map(({ id, imageSrc, title }) => {
+        return <Product key={id} title={title} imageSrc={imageSrc} id={id} />
+      })}
     </Container>
   );
 }
@@ -49,7 +51,7 @@ const Header = styled.h1`
   color: #1e2e4f;
   text-align: center;
   font-family: 'Noto Sans TC', sans-serif;
-  margin: 0;
+  margin: 0 0 40px;
   font-weight: bold;
   font-size: 24px;
   line-height: 62px;

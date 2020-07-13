@@ -118,6 +118,8 @@ const Container = styled.div`
   padding-top: 21px;
   align-items: center;
   color: #1e2e4f;
+  position: relative;
+  height: 100vh;
 `;
 
 const LogoContainer = styled.div`
@@ -126,21 +128,6 @@ const LogoContainer = styled.div`
   width: 100%;
   margin-left: 40px;
   margin-bottom: 95px;
-`;
-
-
-const CardDetails = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 415px;
-
-  Input {
-    width: 185px;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: normal;
-    font-family: 'Montserrat', sans-serif;
-  }
 `;
 
 const Form = styled.form`
@@ -153,6 +140,9 @@ const Form = styled.form`
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 
   button {
     padding: 14px 63px;
@@ -173,7 +163,7 @@ const Form = styled.form`
     cursor: pointer;
 
     &:hover {
-      background: #3cbc79;
+      background: #dc3b6c;
     }
   }
 `;
@@ -214,4 +204,8 @@ const PrivacyPollicy = styled.a`
   font-family: 'Noto Sans TC', sans-serif;
   margin: 0;
   color: #fc5185;
+
+  &:hover {
+      color: #dc3b6c;
+    }
 `;

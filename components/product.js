@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-export default function Product() {
+export default function Product({ title, imageSrc, id }) {
   return (
     <Container>
       <ImageContainer>
-        <img src='/images/productImg.png' alt='product' />
+        {imageSrc && <img src={imageSrc} alt='product' />}
       </ImageContainer>
       <InfoSection>
         <Title>
-          Lorem Ipsum <span>$24</span>
+          {title} <span>$24</span>
         </Title>
         <Description>
           Amet minim mollit non deserunt ullamco est sit aliqua
@@ -38,7 +38,7 @@ const Title = styled.h3`
   margin: 0 0 7px 0;
 
   span {
-    color: #42cb83;
+    color: #FC5185;
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;
@@ -47,7 +47,7 @@ const Title = styled.h3`
 
 const Action = styled.a`
   color: #fff;
-  background: #42cb83;
+  background: #FC5185;
   border-radius: 60px;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 500;
@@ -64,7 +64,8 @@ const ImageContainer = styled.div`
 
   img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
+    /* height: auto; */
   }
 `;
 

@@ -28,6 +28,7 @@ const Header = ({ router }) => {
 
   const brandSection = (
     <BrandSection>
+      <input type='text' placeholder='Search' className={styles.searchField} />
       <BrandName onClick={toggle}>
         Brand Name <span />
         {isOpen && (
@@ -125,6 +126,7 @@ const BrandName = styled.div`
   line-height: 24px;
   color: #1e2e4f;
   margin-right: 20px;
+  margin-left: 80px;
   position: relative;
   cursor: pointer;
 
