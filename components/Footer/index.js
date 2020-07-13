@@ -17,7 +17,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className={styles.menuItemRight}>
-          <img className={styles.logo} src='/images/logo_mocchi_green.png' alt='logo' />
+          <img className={styles.logo} src='/images/matchjet-colored.png' alt='logo' />
           <div className={styles.iconsSection}>
             <img src='/images/fb-green.png' alt="facebook"/>
             <img src="/images/twitter-green.png" alt="twitter"/>

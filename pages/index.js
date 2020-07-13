@@ -10,8 +10,8 @@ export default function BrandPage() {
       {/* Main Promo */}
       <section className={styles.mainPromo}>
         <div className={styles.text}>
-          <h1 className={styles.sectionTitle}>Supercharge your gift <br/> guides.</h1>
-          <p className={styles.sectionActionText}>Betabook helps brands sell gifts with influencers.</p>
+          <h1 className={styles.sectionTitle}>Supercharge your <br/>brand gurus.</h1>
+          <p className={styles.sectionActionText}>matchjet helps brands work with brand advocates for recommendations.</p>
           <a className={styles.getStarted}>Get Started</a>
         </div>
         <div className={styles.image}>
@@ -46,7 +46,7 @@ export default function BrandPage() {
 
       {/* Scale your gift sales */}
       <section className={styles.giftSalesSection}>
-        <h1 className={styles.sectionTitle}>Scale your gift sales.</h1>
+        <h1 className={styles.sectionTitle}>Scale sales with guides.</h1>
         <p className={styles.sectionActionText}>Get started for free.</p>
         <a className={styles.getStarted}>Get Started</a>
       </section>

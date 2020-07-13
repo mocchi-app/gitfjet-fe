@@ -5,6 +5,8 @@
   display: flex;
   width: 85%;
   margin-left: auto;
+
+
   
   .text {
     min-width: 50%;
@@ -18,6 +20,11 @@
 
     .sectionTitle {
       margin: 0 0 35px 0;
+    }
+
+    .sectionActionText {
+      color: #1E2E4F;
+      font-size: 16px;
     }
     
   }
@@ -86,7 +93,6 @@
 
 // Gift Sales section
 .giftSalesSection {
-  background: #f0fdf3;
   padding: 170px 0 160px;
   display: flex;
   flex-direction: column;
@@ -104,7 +110,7 @@
 .getStarted {
   text-align: center;
   width: 200px;
-  background: #00d489;
+  background: #FC5185;;
   color: #fff;
   box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.08);
   border-radius: 100px;

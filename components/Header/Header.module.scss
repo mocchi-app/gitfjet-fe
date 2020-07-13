@@ -1,11 +1,11 @@
 .topHeader {
-  // max-width: 960px;
   width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding: 25px 0 20px;
   font-family: 'Montserrat', sans-serif;
+  align-items: center;
 }
 
 .signInBtn {
@@ -19,9 +19,10 @@
 }
 
 .signUpBtn {
-  background: #00d489;
+  background: #FC5185;
   border: 2px solid #fff;
   font-size: 14px;
+  font-weight: bold;
   border-radius: 100px;
   color: #fff;
   padding: 7px 20px;

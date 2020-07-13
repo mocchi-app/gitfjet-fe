@@ -55,13 +55,8 @@ const Header = ({ router }) => {
 
   return (
     <header className={styles.topHeader}>
-      <img src='/images/logo_mocchi.png' alt='logo' />
+      <img src='/images/matchjet-logo.png' alt='logo' />
       <SectionRight>
-        <input
-          type='text'
-          placeholder='Search'
-          className={styles.searchField}
-        />
         {isDashboardRoute ? (
           brandSection
         ) : (
