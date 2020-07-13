@@ -97,12 +97,12 @@ export default function PaymentForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/logo_mocchi.png' alt='giftjet logo' />
+        <img src='/images/matchjet-logo.png' alt='giftjet logo' />
       </LogoContainer>
       <Form onSubmit={handleSubmit}>
         <FormTitle>Add Payment</FormTitle>
         <CardSection loading={loading} />
-        <button disabled={!stripe}>Save Card</button>
+        <button disabled={!stripe}>Confirm</button>
         <Footer>
           <Text> By signing up, I agree to Mocchi</Text>
           <PrivacyPollicy>Terms of Service and Privacy Policy.</PrivacyPollicy>
@@ -115,14 +115,19 @@ export default function PaymentForm() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 65px;
+  padding-top: 21px;
   align-items: center;
   color: #1e2e4f;
 `;
 
 const LogoContainer = styled.div`
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 40px;
+  margin-bottom: 95px;
 `;
+
 
 const CardDetails = styled.div`
   display: flex;
@@ -158,7 +163,7 @@ const Form = styled.form`
     line-height: 26px;
     box-sizing: border-box;
     border-radius: 60px;
-    background: #42cb83;
+    background: #fc5185;
     color: #fff;
     width: 420px;
     text-align: center;
@@ -182,42 +187,6 @@ const FormTitle = styled.h2`
   line-height: 33px;
   margin: 0 0 50px;
 `;
-
-// const Input = styled.input`
-//   background: #f4f9ff;
-//   border-radius: 60px;
-//   border: none;
-//   outline: none;
-//   width: 415px;
-//   padding: 15px 20px;
-//   color: #44516f;
-//   font-family: 'Noto Sans TC', sans-serif;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 14px;
-//   line-height: 19px;
-//   margin-bottom: 24px;
-// `;
-
-// const Btn = styled.a`
-//   padding: 14px 63px;
-//   font-family: 'Noto Sans TC', sans-serif;
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 18px;
-//   line-height: 26px;
-//   box-sizing: border-box;
-//   border-radius: 60px;
-//   background: #42cb83;
-//   color: #fff;
-//   width: 420px;
-//   text-align: center;
-//   margin-bottom: 40px;
-
-//   &:hover {
-//     background: #3cbc79;
-//   }
-// `;
 
 const Footer = styled.div`
   display: flex;
@@ -244,5 +213,5 @@ const PrivacyPollicy = styled.a`
   text-align: center;
   font-family: 'Noto Sans TC', sans-serif;
   margin: 0;
-  color: #42cb83;
+  color: #fc5185;
 `;

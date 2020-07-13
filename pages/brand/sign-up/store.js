@@ -35,7 +35,7 @@ export default function StoreUrlForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/logo_mocchi.png' alt='giftjet logo' />
+        <img src='/images/matchjet-logo.png' alt='giftjet logo' />
       </LogoContainer>
       <PageTitle>Connect your Shopify store</PageTitle>
       <PageSubTitle>Please follow this step to sync Shopify</PageSubTitle>
@@ -92,12 +92,17 @@ const Overlay = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 65px;
+  padding-top: 21px;
   align-items: center;
   color: #1e2e4f;
 `;
 
-const LogoContainer = styled.div``;
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 40px;
+`;
 
 const PageTitle = styled.h2`
   font-weight: bold;
@@ -105,12 +110,12 @@ const PageTitle = styled.h2`
   line-height: 33px;
   text-align: center;
   font-family: 'Noto Sans TC', sans-serif;
-  margin-top: 43px;
+  margin-top: 85px;
   margin-bottom: 22px;
 `;
 
 const PageSubTitle = styled.h4`
-  color: #979eac;
+  color: #1E2E4F;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
@@ -166,7 +171,7 @@ const BtnContainer = styled.div`
 `;
 
 const Btn = styled.a`
-  padding: 14px 63px;
+  padding: 14px 75px;
   font-family: 'Noto Sans TC', sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -181,7 +186,7 @@ const Btn = styled.a`
   }
 
   &.done {
-    background: #42cb83;
+    background: #FC5185;
     cursor: pointer;
     color: #fff;
   }

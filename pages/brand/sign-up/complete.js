@@ -52,10 +52,10 @@ export default function ComissionForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/logo_mocchi.png' alt='giftjet logo' />
+        <img src='/images/matchjet-logo.png' alt='giftjet logo' />
       </LogoContainer>
       <Form>
-        <FormTitle>Welcome to giftjet</FormTitle>
+        <FormTitle>Welcome to matchjet</FormTitle>
         <Note>
           Please confirm your user commission percentage and you’ll be all set.
         </Note>
@@ -84,13 +84,17 @@ export default function ComissionForm() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 65px;
+  padding-top: 21px;
   align-items: center;
   color: #1e2e4f;
 `;
 
 const LogoContainer = styled.div`
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 40px;
+  margin-bottom: 95px;
 `;
 
 const Form = styled.form`
@@ -198,7 +202,7 @@ const Btn = styled.a`
   line-height: 26px;
   box-sizing: border-box;
   border-radius: 60px;
-  background: #42cb83;
+  background: #FC5185;
   color: #fff;
   width: 420px;
   text-align: center;
