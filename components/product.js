@@ -1,27 +1,34 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import fetch from "isomorphic-unfetch";
 
-export default function Product({ title, imageSrc, id }) {
+export default function Product({
+  title,
+  imageSrc,
+  id,
+  price,
+  bodyHtml,
+  approved,
+}) {
   return (
     <Container>
       <ImageContainer>
-        {imageSrc && <img src={imageSrc} alt='product' />}
+        {imageSrc && <img src={imageSrc} alt="product" />}
       </ImageContainer>
       <InfoSection>
         <Title>
-          {title} <span>$24</span>
+          {title} <span>{"$" + Number(price).toFixed(0)}</span>
         </Title>
-        <Description>
-          Amet minim mollit non deserunt ullamco est sit aliqua
-        </Description>
+        <Description>{bodyHtml}</Description>
       </InfoSection>
-      <Action>Add +</Action>
+      {approved && <BtnRemove>Remove</BtnRemove>}
+      {!approved && <BtnAdd>Add +</BtnAdd>}
     </Container>
   );
 }
 
 const Description = styled.p`
-  font-family: 'Noto Sans TC', sans-serif;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   font-weight: 500;
   font-size: 13px;
   line-height: 18px;
@@ -30,7 +37,7 @@ const Description = styled.p`
 `;
 
 const Title = styled.h3`
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
@@ -38,18 +45,29 @@ const Title = styled.h3`
   margin: 0 0 7px 0;
 
   span {
-    color: #FC5185;
+    color: #fc5185;
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;
   }
 `;
 
-const Action = styled.a`
+const BtnAdd = styled.a`
   color: #fff;
-  background: #FC5185;
+  background: #fc5185;
   border-radius: 60px;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 26px;
+  padding: 5px 32px;
+`;
+
+const BtnRemove = styled.a`
+  color: #fc5185;
+  border-radius: 60px;
+  border: 1px solid #fc5185;
+  font-family: "Noto Sans TC", sans-serif;
   font-weight: 500;
   font-size: 13px;
   line-height: 26px;
@@ -61,6 +79,7 @@ const ImageContainer = styled.div`
   height: 48px;
   border-radius: 6px;
   overflow: hidden;
+  background: #c4c4c4;
 
   img {
     max-width: 100%;

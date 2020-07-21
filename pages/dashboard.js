@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-import fetch from 'isomorphic-unfetch';
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import fetch from "isomorphic-unfetch";
 
-import Product from 'components/product';
+import Product from "components/product";
 
 export default function Dashboard() {
   const [productsList, setProductsList] = useState([]);
@@ -12,19 +12,19 @@ export default function Dashboard() {
   const getAllProducts = async () => {
     if (productsList.length > 0) return;
 
-    const res = await fetch('/api/v1/brand/products', {
-      method: 'GET',
+    const res = await fetch("/api/v1/brand/products", {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
 
-    console.log('res', res);
+    console.log("res", res);
 
     if (res.ok) {
       const data = await res.json();
-      console.log('data', data);
+      console.log("data", data);
       setProductsList(data);
     } else {
       return [];
@@ -38,9 +38,21 @@ export default function Dashboard() {
   return (
     <Container>
       <Header>Active Products</Header>
-      {productsList.map(({ id, imageSrc, title }) => {
-        return <Product key={id} title={title} imageSrc={imageSrc} id={id} />
-      })}
+      {productsList.map(
+        ({ id, imageSrc, title, bodyHtml, variants, approved }) => {
+          return (
+            <Product
+              key={id}
+              title={title}
+              bodyHtml={bodyHtml}
+              price={variants[0].price}
+              imageSrc={imageSrc}
+              id={id}
+              approved={approved}
+            />
+          );
+        }
+      )}
     </Container>
   );
 }
@@ -48,7 +60,7 @@ export default function Dashboard() {
 const Header = styled.h1`
   color: #1e2e4f;
   text-align: center;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin: 0 0 40px;
   font-weight: bold;
   font-size: 24px;
