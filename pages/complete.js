@@ -3,13 +3,14 @@ import { useDispatch } from 'react-redux';
 import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 
-import { UserContext } from '../../../providers/UserProvider';
-import { saveToken } from '../../../store/actions/tokenAction';
+import { UserContext } from '../providers/UserProvider';
+import { saveToken } from '../store/actions/tokenAction';
 
 export default function ComissionForm() {
   const router = useRouter();
   const dispatch = useDispatch();
   const [comission, setComission] = useState(10);
+  const [loading, setLoading] = useState(false);
   const { updateComission, updateUserToken } = useContext(UserContext);
 
   const { token = '' } = router.query;
@@ -21,10 +22,41 @@ export default function ComissionForm() {
     router.push('/card');
   };
 
+  const isPaymentSetup = async () => {
+    const response = await fetch('/api/v1/payment/card', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log('response', response);
+
+    if (response.ok) {
+      const data = await response.json();
+
+      // console.log('response IS OK', data);
+      // const { clientSecret = '' } = data;
+      // console.log('clientSecret', clientSecret);
+      router.push('/dashboard');
+
+    } else {
+      console.error('response IS NOT OK', data);
+      setLoading(false);
+      return;
+    }
+  };
+
   useEffect(() => {
+    setLoading(true);
     if (token !== '') {
       updateUserToken(token);
     }
+  }, []);
+
+  useEffect(() => {
+    isPaymentSetup();
   }, []);
 
   const handleChange = (option) => {
@@ -48,6 +80,8 @@ export default function ComissionForm() {
       return;
     }
   };
+
+  // return <div><div>
 
   return (
     <Container>

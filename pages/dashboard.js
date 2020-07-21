@@ -16,9 +16,7 @@ export default function Dashboard() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${token}`,
-        Authorization: `Bearer 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`,
-        
+        Authorization: `Bearer ${token}`,
       },
     });
 
