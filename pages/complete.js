@@ -10,7 +10,7 @@ export default function ComissionForm() {
   const router = useRouter();
   const dispatch = useDispatch();
   const [comission, setComission] = useState(10);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { updateComission, updateUserToken } = useContext(UserContext);
 
   const { token = '' } = router.query;
@@ -81,7 +81,9 @@ export default function ComissionForm() {
     }
   };
 
-  // return <div><div>
+  if (loading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <Container>
