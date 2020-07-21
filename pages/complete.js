@@ -18,7 +18,7 @@ export default function ComissionForm() {
 
   const handleSubmit = () => {
     updateComission(comission);
-    router.push('/brand/sign-up/card');
+    router.push('/card');
   };
 
   useEffect(() => {

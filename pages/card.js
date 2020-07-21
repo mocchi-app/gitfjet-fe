@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
 import CardSection from 'components/CardSection';
-import { UserContext } from '../../../providers/UserProvider';
+import { UserContext } from '../providers/UserProvider';
 
 export default function PaymentForm() {
   const router = useRouter();
@@ -90,7 +90,7 @@ export default function PaymentForm() {
       console.log('SUCCESS!');
       console.log(result.setupIntent.payment_method);
 
-      router.push('/brand/sign-up/dashboard');
+      router.push('/dashboard');
     }
   };
 

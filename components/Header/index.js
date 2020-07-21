@@ -6,7 +6,7 @@ import { withRouter } from 'next/router';
 import styles from './Header.module.scss';
 
 const signupLinks = {
-  brand: '/brand/sign-up/store',
+  brand: '/store',
 };
 
 const Header = ({ router }) => {
@@ -63,7 +63,7 @@ const Header = ({ router }) => {
         ) : (
           <>
             {' '}
-            <Link href='/sign-in'>
+            <Link href='/store'>
               <a className={styles.signInBtn}>Sign In</a>
             </Link>
             <a onClick={handleSignUp} className={styles.signUpBtn}>

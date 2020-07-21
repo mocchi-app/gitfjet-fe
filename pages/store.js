@@ -56,7 +56,7 @@ export default function StoreUrlForm() {
           onChange={(e) => setStoreName(e.target.value)}
         />
         <BtnContainer>
-          <Link href='/brand'>
+          <Link href='/'>
             <Btn className='cancel'>Cancel</Btn>
           </Link>
           <Btn className='done' onClick={handleSignUp}>
