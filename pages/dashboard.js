@@ -7,11 +7,11 @@ import Product from "components/product";
 
 export default function Dashboard() {
   const [productsList, setProductsList] = useState([]);
+  const [change, setChange] = useState(0);
   const token = useSelector((state) => state.token);
 
   const getAllProducts = async () => {
     if (productsList.length > 0) return;
-
     const res = await fetch("/api/v1/brand/products", {
       method: "GET",
       headers: {
@@ -20,11 +20,8 @@ export default function Dashboard() {
       },
     });
 
-    console.log("res", res);
-
     if (res.ok) {
       const data = await res.json();
-      console.log("data", data);
       setProductsList(data);
     } else {
       return [];
@@ -33,13 +30,14 @@ export default function Dashboard() {
 
   useEffect(() => {
     getAllProducts();
-  }, []);
+    setChange(0);
+  }, [change]);
 
   return (
     <Container>
       <Header>Active Products</Header>
       {productsList.map(
-        ({ id, imageSrc, title, bodyHtml, variants, approved }) => {
+        ({ id, imageSrc, title, bodyHtml, variants, approved }, i) => {
           return (
             <Product
               key={id}
@@ -49,6 +47,12 @@ export default function Dashboard() {
               imageSrc={imageSrc}
               id={id}
               approved={approved}
+              productId={variants[0].product_id}
+              token={token}
+              setProductsList={setProductsList}
+              productsList={productsList}
+              setChange={setChange}
+              index={i}
             />
           );
         }

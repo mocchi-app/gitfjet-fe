@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import fetch from "isomorphic-unfetch";
+import { useState } from "react";
 
 export default function Product({
   title,
@@ -8,7 +9,30 @@ export default function Product({
   price,
   bodyHtml,
   approved,
+  token,
+  setProductsList,
+  productsList,
+  setChange,
+  index,
 }) {
+  const handleClickPut = async (type) => {
+    const res = await fetch(`/api/v1/brand/products/${id}/${type}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        productId: id,
+      }),
+    });
+    const data = await res.json();
+    setProductsList(
+      Object.assign(productsList, (productsList[index].approved = !approved))
+    );
+    setChange(1);
+  };
+
   return (
     <Container>
       <ImageContainer>
@@ -20,8 +44,12 @@ export default function Product({
         </Title>
         <Description>{bodyHtml}</Description>
       </InfoSection>
-      {approved && <BtnRemove>Remove</BtnRemove>}
-      {!approved && <BtnAdd>Add +</BtnAdd>}
+      {approved && (
+        <BtnRemove onClick={() => handleClickPut("decline")}>Remove</BtnRemove>
+      )}
+      {!approved && (
+        <BtnAdd onClick={() => handleClickPut("approve")}>Add +</BtnAdd>
+      )}
     </Container>
   );
 }
