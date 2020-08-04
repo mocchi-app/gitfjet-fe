@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import fetch from 'isomorphic-unfetch';
 
+
 import Spinner from 'components/spinner';
+import { INTERNAL_LINKS } from 'enum';
 
 export default function StoreUrlForm() {
   const [loading, setLoading] = useState(false);
   const [storeName, setStoreName] = useState('');
+  const router = useRouter();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -32,10 +36,15 @@ export default function StoreUrlForm() {
     }
   };
 
+  const goToHomePage = (e) => {
+    e.preventDefault();
+    router.push(INTERNAL_LINKS.HOME)
+  }
+
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/matchjet-logo.png' alt='giftjet logo' />
+        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <PageTitle>Connect your Shopify store</PageTitle>
       <PageSubTitle>Please follow this step to sync Shopify</PageSubTitle>
@@ -101,7 +110,14 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  height: 25px;
   margin-left: 40px;
+  
+  img {
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
 `;
 
 const PageTitle = styled.h2`
