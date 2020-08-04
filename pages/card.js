@@ -6,6 +6,7 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
 import CardSection from 'components/CardSection';
 import { UserContext } from '../providers/UserProvider';
+import { INTERNAL_LINKS } from 'enum';
 
 export default function PaymentForm() {
   const router = useRouter();
@@ -15,6 +16,11 @@ export default function PaymentForm() {
   const [loading, setLoading] = useState(false);
   const token = useSelector((state) => state.token);
   console.log('TOKEN', token);
+
+  const goToHomePage = (e) => {
+    e.preventDefault();
+    router.push(INTERNAL_LINKS.HOME)
+  }
 
   const checkClientSecretExist = async () => {
     const res = await fetch('/api/v1/payment/card', {
@@ -97,7 +103,7 @@ export default function PaymentForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/matchjet-logo.png' alt='giftjet logo' />
+        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <Form onSubmit={handleSubmit}>
         <FormTitle>Add Payment</FormTitle>
@@ -126,8 +132,15 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  height: 30px;
   margin-left: 40px;
   margin-bottom: 95px;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
 `;
 
 const Form = styled.form`
