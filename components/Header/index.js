@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'next/router';
 
+import { INTERNAL_LINKS } from 'enum';
 import styles from './Header.module.scss';
 
 const signupLinks = {
@@ -25,6 +26,11 @@ const Header = ({ router }) => {
     e.preventDefault();
     setIsOpen(!isOpen);
   };
+
+  const goToHomePage = (e) => {
+    e.preventDefault();
+    router.push(INTERNAL_LINKS.HOME)
+  }
 
   const brandSection = (
     <BrandSection>
@@ -56,7 +62,9 @@ const Header = ({ router }) => {
 
   return (
     <header className={styles.topHeader}>
-      <img src='/images/matchjet-logo.png' alt='logo' />
+      <Logo onClick={goToHomePage}>
+        <img src='/images/guideshop-logo.svg' alt='logo' />
+      </Logo>
       <SectionRight>
         {isDashboardRoute ? (
           brandSection
@@ -75,6 +83,16 @@ const Header = ({ router }) => {
     </header>
   );
 };
+
+const Logo = styled.div`
+  height: 25px;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+`;
 
 const Menu = styled.div`
   position: absolute;
