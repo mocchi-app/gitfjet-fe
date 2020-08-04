@@ -202,7 +202,7 @@ const Btn = styled.a`
   }
 
   &.done {
-    background: #FC5185;
+    background: #2fc3ff;
     cursor: pointer;
     color: #fff;
   }

@@ -259,7 +259,7 @@ const Btn = styled.a`
   line-height: 26px;
   box-sizing: border-box;
   border-radius: 60px;
-  background: #FC5185;
+  background: #2fc3ff;
   color: #fff;
   width: 420px;
   text-align: center;
