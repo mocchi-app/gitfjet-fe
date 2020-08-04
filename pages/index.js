@@ -33,19 +33,19 @@ export default function BrandPage() {
         <div className={styles.cards}>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
-              <img src='/images/gift.png' alt='' />
+              <img src='/images/inventory.png' alt='' />
             </div>
             <p className={styles.desc}>Connect your inventory.</p>
           </div>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
-              <img src='/images/link.png' alt='' />
+              <img src='/images/shoppable.png' alt='' />
             </div>
             <p className={styles.desc}>Enable shoppable recommendations with advocates.</p>
           </div>
           <div className={styles.card}>
             <div className={styles.imgContainer}>
-              <img src='/images/dollar-sign.png' alt='' />
+              <img src='/images/order.png' alt='' />
             </div>
             <p className={styles.desc}>Orders are placed directly in your existing shop.</p>
           </div>
