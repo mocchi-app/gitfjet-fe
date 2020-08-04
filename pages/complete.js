@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { UserContext } from '../providers/UserProvider';
 import { saveToken } from '../store/actions/tokenAction';
 
+import { INTERNAL_LINKS } from 'enum';
+
 export default function ComissionForm() {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -16,6 +18,11 @@ export default function ComissionForm() {
   const { token = '' } = router.query;
   console.log('token', token);
   dispatch(saveToken(token));
+
+  const goToHomePage = (e) => {
+    e.preventDefault();
+    router.push(INTERNAL_LINKS.HOME)
+  }
 
   const handleSubmit = () => {
     updateComission(comission);
@@ -88,7 +95,7 @@ export default function ComissionForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/matchjet-logo.png' alt='giftjet logo' />
+        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <Form>
         <FormTitle>Welcome to matchjet</FormTitle>
@@ -131,8 +138,15 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  height: 25px;
   margin-left: 40px;
   margin-bottom: 95px;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
 `;
 
 const Form = styled.form`

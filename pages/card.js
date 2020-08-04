@@ -132,7 +132,7 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: 30px;
+  height: 25px;
   margin-left: 40px;
   margin-bottom: 95px;
 
