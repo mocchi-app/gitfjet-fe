@@ -44,7 +44,7 @@ export default function StoreUrlForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
+        <img src='/images/guideshop-logo.png' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <PageTitle>Connect your Shopify store</PageTitle>
       <PageSubTitle>Please follow this step to sync Shopify</PageSubTitle>

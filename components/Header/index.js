@@ -63,7 +63,7 @@ const Header = ({ router }) => {
   return (
     <header className={styles.topHeader}>
       <Logo onClick={goToHomePage}>
-        <img src='/images/guideshop-logo.svg' alt='logo' />
+        <img src='/images/guideshop-logo.png' alt='logo' />
       </Logo>
       <SectionRight>
         {isDashboardRoute ? (
