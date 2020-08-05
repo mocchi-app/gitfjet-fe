@@ -12,8 +12,8 @@ export default function BrandPage() {
       <section className={styles.mainPromo}>
         <div className={styles.text}>
           <h1 className={styles.sectionTitle}>
-            Make your recommendations <br />
-            shoppable.
+            Make customer<br />
+            recommendations shoppable.
           </h1>
           <p className={styles.sectionActionText}>
             Turn your customer's recommendations into shoppable content.
