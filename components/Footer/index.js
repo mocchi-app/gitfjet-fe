@@ -17,17 +17,11 @@ export default function Footer() {
           </ul>
         </div>
         <div className={styles.menuItemRight}>
-          <img className={styles.logo} src='/images/matchjet-colored.png' alt='logo' />
-          <div className={styles.iconsSection}>
-            <img src='/images/fb-green.png' alt="facebook"/>
-            <img src="/images/twitter-green.png" alt="twitter"/>
-            <img src="/images/youtube-green.png" alt="youtube"/>
-            <img src="/images/ig-green.png" alt="instagram"/>
-          </div>
+          <img className={styles.logo} src='/images/guideshop-footer.png' alt='logo' />
         </div>
       </div>
       <div className={styles.bottomSection}>
-        &copy;2020 - 2021 Giftjet - All rights reserved
+        &copy;2020 - 2021 guideshop - All rights reserved
       </div>
     </footer>
   );
