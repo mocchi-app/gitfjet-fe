@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
         <Elements stripe={stripePromise}>
           <Layout>
             <Head>
-              <title>GiftJet</title>
+              <title>Brand</title>
               <meta
                 name='viewport'
                 content='initial-scale=1.0, width=device-width'
