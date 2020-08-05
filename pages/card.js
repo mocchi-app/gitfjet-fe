@@ -103,7 +103,7 @@ export default function PaymentForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
+        <img src='/images/guideshop-logo.png' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <Form onSubmit={handleSubmit}>
         <FormTitle>Add Payment</FormTitle>
@@ -166,7 +166,7 @@ const Form = styled.form`
     line-height: 26px;
     box-sizing: border-box;
     border-radius: 60px;
-    background: #fc5185;
+    background: #2fc3ff;
     color: #fff;
     width: 420px;
     text-align: center;
@@ -174,10 +174,6 @@ const Form = styled.form`
     border: none;
     outline: none;
     cursor: pointer;
-
-    &:hover {
-      background: #dc3b6c;
-    }
   }
 `;
 
