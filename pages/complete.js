@@ -95,7 +95,7 @@ export default function ComissionForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/guideshop-logo.png' alt='giftjet logo' onClick={goToHomePage} />
+        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <Form>
         <FormTitle>Welcome to matchjet</FormTitle>
