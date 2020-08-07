@@ -103,7 +103,7 @@ export default function PaymentForm() {
   return (
     <Container>
       <LogoContainer>
-        <img src='/images/guideshop-logo.png' alt='giftjet logo' onClick={goToHomePage} />
+        <img src='/images/guideshop-logo.svg' alt='giftjet logo' onClick={goToHomePage} />
       </LogoContainer>
       <Form onSubmit={handleSubmit}>
         <FormTitle>Add Payment</FormTitle>
